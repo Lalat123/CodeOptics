@@ -1,0 +1,142 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background: #0f172a;
+  color: white;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+  position: relative;
+}
+
+.backBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 8px;
+}
+
+.backBtn:hover {
+  color: #fff;
+}
+
+.header h1 {
+  margin: 0 0 10px 0;
+  font-size: 36px;
+  background: linear-gradient(to right, #e2e8f0, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  color: #64748b;
+  font-size: 18px;
+  margin: 0;
+}
+
+.optionsGrid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+}
+
+.optionCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 50px 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.optionCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.optionCard:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.optionCard:hover::after {
+  opacity: 1;
+}
+
+.iconWrapper {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 30px auto;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.theoryIcon {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.visualIcon {
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.optionCard h2 {
+  font-size: 28px;
+  margin: 0 0 16px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.optionCard p {
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .optionsGrid {
+    grid-template-columns: 1fr;
+  }
+  .backBtn {
+    position: relative;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}

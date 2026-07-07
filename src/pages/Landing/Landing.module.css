@@ -1,0 +1,345 @@
+/* Layout & Base */
+.landingContainer {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #1a1b1e; /* Deep dark background */
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  color: #3b82f6;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.loginLink {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.loginLink:hover {
+  color: #ffffff;
+}
+
+.getStartedBtn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.getStartedBtn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.heroSection {
+  width: 100%;
+  min-height: calc(100vh - 100px); /* Fill initial screen minus nav */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 20px;
+  margin-top: -60px; /* Slight optical adjustment */
+}
+
+.heroTitle {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 0 0 40px 0;
+}
+
+.highlightText {
+  color: #3b82f6;
+}
+
+.heroSubtitle {
+  font-size: 18px;
+  color: #9ca3af;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+}
+
+/* Action Buttons */
+.heroActions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.primaryBtn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primaryBtn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondaryBtn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: #4b5563;
+}
+
+/* Features Section */
+.featuresSection {
+  width: 100%;
+  padding: 80px 20px;
+  background-color: #141518; /* Slightly darker than hero */
+  display: flex;
+  justify-content: center;
+}
+
+.featuresWrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.featureLeft {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.featureRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logoFeatureImage {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.screenshotFeatureImage {
+  max-width: 500px; /* Reduced size as requested */
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid #27272a;
+  transform: translateX(20px); /* Shift it slightly right */
+}
+
+/* Footer Section */
+.footerContainer {
+  width: 100%;
+  background-color: #232f3e; /* Amazon-style dark blue */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.backToTop {
+  background-color: #37475a;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.backToTop:hover {
+  background-color: #4b5e76;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 20px;
+  gap: 40px;
+}
+
+.footerColumn {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footerColumn h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #ffffff;
+}
+
+.footerColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerColumn a {
+  color: #dddddd;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footerColumn a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footerBottom {
+  background-color: #131a22; /* Even darker blue for very bottom */
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footerLogoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerLogoIcon {
+  color: #3b82f6; /* Blue to match our theme */
+}
+
+.footerLogoText {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.footerSettings {
+  display: flex;
+  gap: 10px;
+}
+
+.footerLangBtn, .footerRegionBtn {
+  background-color: transparent;
+  color: #cccccc;
+  border: 1px solid #888888;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footerLangBtn:hover, .footerRegionBtn:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.footerCopyright {
+  font-size: 12px;
+  color: #888888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 48px;
+  }
+  
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .navbar {
+    padding: 20px;
+  }
+  
+  .footerContent {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+}
