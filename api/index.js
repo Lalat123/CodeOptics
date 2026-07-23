@@ -30,7 +30,18 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }
 });
-const User = mongoose.model('User', userSchema);
+const User = mongoose.models.User || mongoose.model('User', userSchema);
+
+// Template Schema
+const templateSchema = new mongoose.Schema({
+  email: { type: String, required: true },
+  topicId: { type: String, required: true },
+  templates: [{
+    title: { type: String, default: '' },
+    code: { type: String, default: '' }
+  }]
+});
+const Template = mongoose.models.Template || mongoose.model('Template', templateSchema);
 
 // API: Register
 app.post('/api/auth/register', async (req, res) => {
@@ -77,6 +88,49 @@ app.post('/api/auth/login', async (req, res) => {
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Server error during login.' });
+  }
+});
+
+// API: Get Templates
+app.get('/api/template/:topicId', async (req, res) => {
+  await connectDB();
+  const { topicId } = req.params;
+  const { email } = req.query;
+
+  if (!email) return res.status(400).json({ error: 'Email required.' });
+
+  try {
+    const record = await Template.findOne({ email, topicId });
+    return res.json({ templates: record ? record.templates : [] });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Server error fetching templates.' });
+  }
+});
+
+// API: Save Templates
+app.post('/api/template/:topicId', async (req, res) => {
+  await connectDB();
+  const { topicId } = req.params;
+  const { email, templates } = req.body;
+
+  if (!email || !Array.isArray(templates)) {
+    return res.status(400).json({ error: 'Email and templates array required.' });
+  }
+
+  try {
+    let record = await Template.findOne({ email, topicId });
+    if (record) {
+      record.templates = templates;
+      await record.save();
+    } else {
+      record = new Template({ email, topicId, templates });
+      await record.save();
+    }
+    return res.json({ success: true, templates: record.templates });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Server error saving templates.' });
   }
 });
 

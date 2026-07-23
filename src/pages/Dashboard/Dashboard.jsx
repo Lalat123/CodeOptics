@@ -12,8 +12,14 @@ export default function Dashboard() {
       description: 'A versatile data structure for answering range queries and updating array elements in O(log N) time.',
       icon: <Layers size={32} className={styles.topicIcon} />,
       status: 'Available'
+    },
+    {
+      id: 'sparse-table',
+      title: 'Sparse Table',
+      description: 'A 2D array data structure used for answering idempotent range queries like Min, Max, and GCD in O(1) time.',
+      icon: <Layers size={32} className={styles.topicIcon} />,
+      status: 'Available'
     }
-    // More topics can be added here
   ];
 
   const handleLogout = () => {

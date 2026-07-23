@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { BookOpen, Activity, ArrowLeft } from 'lucide-react';
+import { BookOpen, Activity, ArrowLeft, FileCode } from 'lucide-react';
 import styles from './TopicDetails.module.css';
 
 export default function TopicDetails() {
@@ -30,6 +30,17 @@ export default function TopicDetails() {
           </div>
           <h2>Theory</h2>
           <p>Read the comprehensive guide on {topicName}, understand the math, and review the algorithmic approach.</p>
+        </div>
+
+        <div 
+          className={styles.optionCard}
+          onClick={() => navigate(`/topic/${id}/template`)}
+        >
+          <div className={`${styles.iconWrapper} ${styles.templateIcon}`}>
+            <FileCode size={40} />
+          </div>
+          <h2>Templates</h2>
+          <p>Write and store your personalized code templates for {topicName} to use in your future coding sessions.</p>
         </div>
 
         <div 
