@@ -32,7 +32,8 @@ export default function Auth() {
         return;
       }
 
-      // Success
+      // Success — store JWT token and email
+      localStorage.setItem('codeoptics_token', data.token);
       localStorage.setItem('codeoptics_session', data.email);
       navigate('/dashboard');
     } catch (err) {

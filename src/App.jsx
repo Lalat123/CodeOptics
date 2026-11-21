@@ -17,7 +17,7 @@ function PrivateRoute({ children }) {
 function App() {
   return (
     <Router>
-      <div className="app-container" style={{ width: '100%', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div className="app-container" style={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: 0 }}>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Auth />} />

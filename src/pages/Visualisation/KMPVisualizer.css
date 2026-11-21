@@ -1,0 +1,309 @@
+.kmp-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background: #000000;
+  color: white;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.kmp-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.kmp-back-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  margin-right: 15px;
+  transition: all 0.2s;
+}
+
+.kmp-back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.kmp-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.kmp-main {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  gap: 20px;
+  min-height: calc(100vh - 70px);
+}
+
+.kmp-sidebar {
+  width: 320px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.kmp-sidebar-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kmp-label {
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kmp-input {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.kmp-input:focus {
+  border-color: #3b82f6;
+}
+
+.kmp-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.kmp-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.kmp-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kmp-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.kmp-visualization-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 30px;
+}
+
+/* Phase Indicators */
+.kmp-phase-title {
+  font-size: 18px;
+  color: #f8fafc;
+  margin-bottom: 20px;
+  border-left: 4px solid #3b82f6;
+  padding-left: 10px;
+}
+
+/* Cell Rows */
+.kmp-row-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.kmp-row-label {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: bold;
+}
+
+.kmp-cells-wrapper {
+  display: flex;
+  gap: 4px;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.kmp-cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.kmp-cell.active-text {
+  border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.kmp-cell.active-pattern {
+  border-color: #ea580c;
+  box-shadow: 0 0 10px rgba(234, 88, 12, 0.3);
+}
+
+.kmp-cell.matched {
+  background: #064e3b;
+  border-color: #10b981;
+  color: #34d399;
+}
+
+.kmp-cell.mismatched {
+  background: #7f1d1d;
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+.kmp-cell.global-match {
+  background: #166534;
+  border-color: #22c55e;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+}
+
+.kmp-cell-index {
+  position: absolute;
+  top: -15px;
+  font-size: 10px;
+  color: #64748b;
+  font-family: monospace;
+}
+
+.kmp-cell-pointer {
+  position: absolute;
+  bottom: -20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.pointer-len { color: #3b82f6; }
+.pointer-i { color: #ea580c; }
+.pointer-text { color: #3b82f6; }
+.pointer-pat { color: #ea580c; }
+
+
+/* LPS Table */
+.kmp-lps-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kmp-lps-table {
+  display: flex;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.kmp-lps-cell {
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.kmp-lps-char {
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.kmp-lps-val {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 14px;
+  color: #f8fafc;
+  transition: all 0.3s;
+}
+
+.kmp-lps-val.active {
+  background: #3b82f6;
+  border-color: #60a5fa;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+.kmp-lps-val.fallback {
+  background: #ea580c;
+  border-color: #fbd38d;
+}
+
+
+/* Logs */
+.kmp-log-container {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px 25px;
+  font-family: monospace;
+  font-size: 13px;
+  min-height: 150px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.kmp-log-entry {
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background-color: rgba(30, 41, 59, 0.5);
+  border-left: 3px solid rgba(255, 255, 255, 0.1);
+  line-height: 1.5;
+}
+
+.kmp-log-entry.info { border-left-color: #3b82f6; }
+.kmp-log-entry.success { border-left-color: #22c55e; }
+.kmp-log-entry.warning { border-left-color: #ea580c; }
+.kmp-log-entry.error { border-left-color: #ef4444; }
